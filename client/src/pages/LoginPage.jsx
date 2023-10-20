@@ -7,7 +7,7 @@ const LoginPage = () => {
       <form className="max-w-md mx-auto">
         <input type="email" placeholder="Your@email.com" />
         <input type="password" placeholder="Password" />
-        <button className="primary text-lg font-bold mt-4">Login</button>
+        <button className="primary text-lg font-bold mt-4">Continue</button>
 
         <div className="text-center text-gray-500 mt-2">
           Don't have an account yet? <Link to={'/register'} className="underline text-black">Register now</Link>

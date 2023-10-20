@@ -8,5 +8,5 @@ input[type='email'], input[type='password'], input[type='text']{
 }
 
 button.primary{
-    @apply w-full text-white bg-primary rounded-lg py-4;
+    @apply w-full text-white bg-primary rounded-md py-4;
 }

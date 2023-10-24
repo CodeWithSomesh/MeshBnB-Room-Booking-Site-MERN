@@ -1,12 +1,14 @@
-import { Routes, Route } from 'react-router-dom'
-import './App.css'
-import Layout from './components/Layout'
-import HomePage from './pages/HomePage'
-import LoginPage from './pages/LoginPage'
-import RegisterPage from './pages/RegisterPage'
+import { Routes, Route } from 'react-router-dom';
+import './App.css';
+import Layout from './components/Layout';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import axios from 'axios';
+
+axios.defaults.baseURL = 'http://localhost:4000';
 
 function App() {
-
 
   return (
     <Routes> 

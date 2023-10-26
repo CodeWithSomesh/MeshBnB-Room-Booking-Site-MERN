@@ -20,6 +20,7 @@ const RegisterPage = () => {
   
       alert('Registration Successful. Now you can log in.');
       
+      
     } catch (e) {
 
       alert('Registration Failed. Please try again later.');

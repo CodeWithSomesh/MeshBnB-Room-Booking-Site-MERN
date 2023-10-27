@@ -73,7 +73,7 @@ const AccountPage = () => {
 
       {subpage === 'profile' && (
         <div className="text-center max-w-lg mx-auto">
-          Logged in as {user.name} ({user.email}) <br />
+          Logged in as <span className='font-bold'>{user.name}</span> <span className='font-bold'>({user.email})</span> <br />
           <button onClick={logout} className='primary font-bold max-w-md mt-4'>Logout</button>
         </div>
       )}

@@ -7,7 +7,7 @@ const bcrypt = require('bcryptjs'); // This package is used to encrypt user's lo
 const jwt = require('jsonwebtoken');
 const User = require('./models/User'); //Importing UserModels from "User.js"
 const cookieParser = require('cookie-parser'); 
-require('dotenv').config(); //Require this package to read 'enc' files succesfully 
+require('dotenv').config(); //Require this package to import enviromental variables from 'env' files succesfully 
 const app = express();
 
 const bcryptSalt = bcrypt.genSaltSync(10); 
@@ -49,24 +49,24 @@ app.post('/register', async (req, res) => {
 app.post('/login', async(req, res) => {
     const {email, password} = req.body; 
 
-    const userDoc = await User.findOne({email});
-        if (userDoc) {
-            const passwordMatches = bcrypt.compareSync(password, userDoc.password)
-            if (passwordMatches) {
-                jwt.sign({
-                    email: userDoc.email, 
-                    id: userDoc._id
-                }, jwtSecret, {}, (err, token) => {
-                    if (err) throw err;
-                    res.cookie('token', token).json(userDoc);
-                })
-                
-            } else {
-                res.status(422).json('pass not ok')
-            }
+    const userDoc = await User.findOne({email:email});
+    if (userDoc) {
+        const passwordMatches = bcrypt.compareSync(password, userDoc.password)
+        if (passwordMatches) {
+            jwt.sign({
+                email: userDoc.email, 
+                id: userDoc._id
+            }, jwtSecret, {}, (err, token) => {
+                if (err) throw err;
+                res.cookie('token', token).json(userDoc);
+            })
+            
         } else {
-            res.json('Email not found')
+            res.status(422).json('pass not ok')
         }
+    } else {
+        res.json('Email not found')
+    }
 
 });
 

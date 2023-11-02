@@ -7,6 +7,7 @@ const bcrypt = require('bcryptjs'); // This package is used to encrypt user's lo
 const jwt = require('jsonwebtoken');
 const User = require('./models/User'); //Importing UserModels from "User.js"
 const cookieParser = require('cookie-parser'); 
+const imageDownloader = require('image-downloader'); // For downloading image to disk from a given URL
 require('dotenv').config(); //Require this package to import enviromental variables from 'env' files succesfully 
 const app = express();
 
@@ -23,10 +24,13 @@ app.use(cors({
 //  Connecting to Mongo Atlas 
 mongoose.connect(process.env.MONGO_URL)
 
+
+// Test page (Used for testing)
 app.get('/test', (req, res) => {
     res.json('test ok')
 })
 
+// Register Page 
 app.post('/register', async (req, res) => {
     const {name, email, password} = req.body;
     
@@ -45,7 +49,7 @@ app.post('/register', async (req, res) => {
 
 });
 
-
+// Login Page 
 app.post('/login', async(req, res) => {
     const {email, password} = req.body; 
 
@@ -70,6 +74,7 @@ app.post('/login', async(req, res) => {
 
 });
 
+// Profile Page 
 app.get('/profile', (req, res) => {
     const {token} = req.cookies;
     if (token) {
@@ -85,8 +90,23 @@ app.get('/profile', (req, res) => {
 
 })
 
+// Logout Page 
 app.post('/logout', (req, res) => {
     res.cookie('token', '').json(true);
 });
 
+app.post('/upload-by-link', async (req, res) => {
+    const {link} = req.body;
+    const newName = Date.now() + '.jpg';
+
+    await imageDownloader.image({
+        url: link,
+        dest: __dirname + '/uploads/' + newName,
+    });
+
+    res.json(newName)
+})
+
+
+// Server listening to port 4000
 app.listen(4000)

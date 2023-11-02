@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom'
 
@@ -17,7 +18,12 @@ const MyAccommodation = () => {
   const [checkInTime, setCheckInTime] = useState('');
   const [checkOutTime, setCheckOutTime] = useState('');
   const [maxGuests, setMaxGuests] = useState('');
+  const [price, setPrice] = useState('');
 
+  async function addPhotoByLink (event) {
+    event.preventDefault(); // So it would not reload the page
+    await axios.post('/upload-by-link', {link: photoLink})
+  }
 
   return (
     <div>
@@ -41,19 +47,34 @@ const MyAccommodation = () => {
                     {/*Title Input Section*/}
                     <h2 className='text-2xl font-semibold  mt-6 ' >Title</h2>
                     <p className='text-sm text-gray-500 m-2'>Title of your place. Tip: should be short and catchy</p>
-                    <input type='text' placeholder='Title, ex: Golden Triangle Condo with 4 rooms and 3 beds' ></input>
+                    <input 
+                        type='text' 
+                        placeholder='Title, ex: Golden Triangle Condo with 4 rooms and 3 beds' 
+                        value={title}
+                        onChange={event => setTitle(event.target.value)} 
+                    />
 
                     {/*Address Input Section*/}
                     <h2 className='text-2xl font-semibold mt-6 ' >Address</h2>
                     <p className='text-sm text-gray-500 m-2'>Address of your place</p>
-                    <input type='text' placeholder='Address' ></input>
+                    <input 
+                        type='text' 
+                        placeholder='Address' 
+                        value={address}
+                        onChange={event => setAddress(event.target.value)} 
+                    />
 
                     {/*Photos Input Section*/}
                     <h2 className='text-2xl font-semibold mt-6' >Photos</h2>
                     <p className='text-sm text-gray-500 m-2'>Phots of your place. Tip: include more pictures</p>
                     <div className="flex gap-2">
-                        <input type="text" placeholder='Add using a link ...jpg' />
-                        <button className='bg-gray-200 font-semibold rounded-2xl px-4' >Add&nbsp;Photo</button>
+                        <input 
+                            type="text" 
+                            placeholder='Add using a link ...jpg'
+                            value={photoLink}
+                            onChange={event => setPhotoLink(event.target.value)}
+                        />
+                        <button onClick={addPhotoByLink} className='bg-gray-200 font-semibold rounded-2xl px-4' >Add&nbsp;Photo</button>
                     </div>
                     <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 ' >
                         <button className="flex items-center justify-center gap-2 border p-8 rounded-2xl text-2xl" >
@@ -69,7 +90,12 @@ const MyAccommodation = () => {
                     {/*Description Input Section*/}
                     <h2 className='text-2xl font-semibold mt-8' >Description</h2>
                     <p className='text-sm text-gray-500 m-2'>Description of your place</p>
-                    <textarea  rows={10} placeholder='Examples: 5 minutes from the airport, Has swimming pool and gym, etc' />
+                    <textarea  
+                        rows={10} 
+                        placeholder='Examples: 5 minutes from the airport, Has swimming pool and gym, etc' 
+                        value={description}
+                        onChange={event => setDescription(event.target.value)}
+                    />
 
                     {/*Perks Input Section*/}
                     <h2 className='text-2xl font-semibold mt-6 ' >Perks</h2>
@@ -249,7 +275,12 @@ const MyAccommodation = () => {
                     {/*Extra-Info Input Section*/}
                     <h2 className='text-2xl font-semibold mt-8' >Extra Info</h2>
                     <p className='text-sm text-gray-500 m-2'>House Rules, etc</p>
-                    <textarea rows={5} placeholder='Examples: No smoking, Only up to 6 maximum guests, etc ' />
+                    <textarea 
+                        rows={5} 
+                        placeholder='Examples: No smoking, Only up to 6 maximum guests, etc' 
+                        value={extraInfo}
+                        onChange={event => setExtraInfo(event.target.value)}
+                    />
 
                     {/*Check-In-Details Input Section*/}
                     <h2 className='text-2xl font-semibold mt-6 ' >Booking Details</h2>
@@ -257,19 +288,43 @@ const MyAccommodation = () => {
                     <div className="grid grid-cols-2 gap-2 mx-2 my-4">
                         <div className="font-medium">
                             <h3 className='' >Check In Time</h3>
-                            <input type="text" placeholder='From 2pm onwards' className='font-normal'/>
+                            <input 
+                                type="text" 
+                                placeholder='From 2pm onwards'
+                                className='font-normal'
+                                value={checkInTime}
+                                onChange={event => setCheckInTime(event.target.value)}
+                            />
                         </div>
                         <div className="font-medium">
                             <h3 className='' >Check Out Time</h3>
-                            <input type="text" placeholder='Before 12pm' className='font-normal'/>
+                            <input 
+                                type="text" 
+                                placeholder='Before 12pm' 
+                                className='font-normal'
+                                value={checkOutTime}
+                                onChange={event => setCheckOutTime(event.target.value)}
+                            />
                         </div>
                         <div className="font-medium">
                             <h3 className='' >Max Number of Guests</h3>
-                            <input type="number" placeholder='Less than 10' className='font-normal'/>
+                            <input 
+                                type="number" 
+                                placeholder='Less than 10'
+                                className='font-normal'
+                                value={maxGuests}
+                                onChange={event => setMaxGuests(event.target.value)}
+                            />
                         </div>
                         <div className="font-medium">
                             <h3 className='' >Price</h3>
-                            <input type="number" placeholder='RM 500' className='font-normal'/>
+                            <input 
+                                type="number" 
+                                placeholder='RM 500' 
+                                className='font-normal'
+                                value={price}
+                                onChange={event => setPrice(event.target.value)}
+                            />
                         </div>
                     </div>
                     <button className='primary font-bold mt-6'>

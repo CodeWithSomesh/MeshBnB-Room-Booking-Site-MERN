@@ -16,6 +16,7 @@ const jwtSecret = 'jtghwhjwjlerkfnhqerfbhwt'
 
 app.use(express.json()); //Using JSON Parser
 app.use(cookieParser()); //Using Cookie Parser
+app.use('/uploads', express.static(__dirname + '/uploads'))
 app.use(cors({
     credentials: true,
     origin: 'http://localhost:5173',
@@ -95,9 +96,11 @@ app.post('/logout', (req, res) => {
     res.cookie('token', '').json(true);
 });
 
+
+// Upload Room Pictures by Link feature  
 app.post('/upload-by-link', async (req, res) => {
     const {link} = req.body;
-    const newName = Date.now() + '.jpg';
+    const newName = 'photo' + Date.now() + '.jpg';
 
     await imageDownloader.image({
         url: link,

@@ -30,7 +30,7 @@ const Header = () => {
             </div>
             
             {!!user && (
-                <div>
+                <div className='font-semibold'>
                     {user.name}
                 </div>
             )}

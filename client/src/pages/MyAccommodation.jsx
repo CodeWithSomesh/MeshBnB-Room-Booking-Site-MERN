@@ -20,9 +20,13 @@ const MyAccommodation = () => {
   const [maxGuests, setMaxGuests] = useState('');
   const [price, setPrice] = useState('');
 
-  async function addPhotoByLink (event) {
+  async function uploadPhotoByLink (event) {
     event.preventDefault(); // So it would not reload the page
-    await axios.post('/upload-by-link', {link: photoLink})
+    const {data:filename} = await axios.post('/upload-by-link', {link: photoLink});
+    setAddedPhotos(prev => {
+        return [...prev, filename]
+    });
+    setPhotoLink('');
   }
 
   return (
@@ -74,9 +78,15 @@ const MyAccommodation = () => {
                             value={photoLink}
                             onChange={event => setPhotoLink(event.target.value)}
                         />
-                        <button onClick={addPhotoByLink} className='bg-gray-200 font-semibold rounded-2xl px-4' >Add&nbsp;Photo</button>
+                        <button onClick={uploadPhotoByLink} className='bg-gray-200 font-semibold rounded-2xl px-4' >Add&nbsp;Photo</button>
                     </div>
-                    <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 ' >
+                    <div className='grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2' >
+                        {addedPhotos.length > 0 && addedPhotos.map((photosLink, index) => (
+                            <div key={index}>
+                                <img className='rounded-2xl cursor-pointer' src={'http://localhost:4000/uploads/' + photosLink} alt="room image" />
+                            </div>
+                        ))}
+
                         <button className="flex items-center justify-center gap-2 border p-8 rounded-2xl text-2xl" >
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />

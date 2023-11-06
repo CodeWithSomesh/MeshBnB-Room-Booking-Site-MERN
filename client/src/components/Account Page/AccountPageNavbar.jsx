@@ -1,48 +1,29 @@
-import { useContext, useState } from 'react'
-import { UserContext } from '../UserContext'
-import { Link, Navigate, useParams } from 'react-router-dom'
-import axios from 'axios'
-import MyAccommodation from './MyAccommodation'
+import {Link, useLocation} from 'react-router-dom';
 
-const AccountPage = () => {
-  const [redirect, setRedirect] = useState(null);
-  const {ready, user, setUser} = useContext(UserContext);
-  let {subpage} = useParams();
-  if (subpage === undefined) {
+const AccountPageNavbar = () => {
+
+  const {pathname} = useLocation();
+  let subpage = pathname.split('/')?.[2]; {/*Assingning the 3rd value in the array as 'subpage'*/}
+  if (subpage === undefined){
     subpage = 'profile';
   }
-
-  if (!ready){
-    return 'Loading...';
-  }
-
-  if (ready && !user && !redirect) {
-    return <Navigate to={'/login'} />
-  }
-  
 
   function linkClasses(type=null) {
     let classes = 'py-3 px-6 font-semibold inline-flex gap-2 rounded-full';
 
     if (type === subpage){
-      classes += ' bg-primary text-white'
+      classes += ' bg-primary text-white';
     } else {
-      classes += ' bg-gray-200'
+      classes += ' bg-gray-200';
     }
 
     return classes;
   }
 
-  async function logout () {
-    await axios.post('/logout');
-    setUser(null);
-    setRedirect('/'); 
-  }
 
 
   return (
-    <div>
-      <nav className="w-full flex mt-8 gap-4 justify-center mb-6">
+    <nav className="w-full flex mt-8 gap-4 justify-center mb-6">
         <Link to={'/account'} className={linkClasses('profile')} >
           
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -70,20 +51,7 @@ const AccountPage = () => {
           My Accommodations
         </Link>
       </nav>
-
-      {subpage === 'profile' && (
-        <div className="text-center max-w-lg mx-auto">
-          Logged in as <span className='font-bold'>{user.name}</span> <span className='font-bold'>({user.email})</span> <br />
-          <button onClick={logout} className='primary font-bold max-w-md mt-4'>Logout</button>
-        </div>
-      )}
-
-      {subpage === 'accommodations' && (
-        <MyAccommodation />
-      )}
-
-    </div>
   )
 }
 
-export default AccountPage
+export default AccountPageNavbar

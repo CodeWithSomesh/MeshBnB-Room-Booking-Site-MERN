@@ -30,15 +30,15 @@ const MyAccommodation = () => {
             </Link>
         </div>
 
-        <div className="mt-4">
+        <div className="mt-4 ">
           {accommodations.length > 0 && accommodations.map(place => (
 
-            <Link to={'/account/accommodations/' + place._id} className="flex gap-4 bg-gray-100 rounded-2xl p-4" key={place}>
+            <Link to={'/account/accommodations/' + place._id} className="flex gap-4 mb-4 bg-gray-100 rounded-2xl p-4" key={place}>
 
-              <div className="flex h-32 w-32 grow shrink-0 bg-gray-300">
-              {place.addedPhotos.length > 0 && (
-                <img className='object-cover' src={'http://localhost:4000/uploads/'+ place.addedPhotos[0]} alt="Main Image" />
-              )}
+              <div className="flex h-32 w-32 shrink-0 bg-gray-300 rounded-lg">
+                {place.addedPhotos.length > 0 && (
+                  <img className='object-cover rounded-lg' src={'http://localhost:4000/uploads/'+ place.addedPhotos[0]} alt="Main Image" />
+                )}
               </div>
 
               <div className="grow-0 shrink">

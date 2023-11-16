@@ -33,7 +33,7 @@ const SingleAccommodationPage = () => {
 
                     <button 
                         onClick={() => setShowPhotos(false)} 
-                        className="text-white flex gap-1 items-center bg-black border-4 border-white font-semibold px-4 py-2 rounded-md fixed right-20"
+                        className="text-white flex gap-1 items-center bg-black border-4 border-white font-semibold px-4 py-2 rounded-lg fixed right-20"
                     >
 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -60,12 +60,17 @@ const SingleAccommodationPage = () => {
     }
 
   return (
-    <div className="mt-12 bg-gray-100 p-10 rounded-md border-8 border-black">
-        <h1 className="mb-2 text-3xl leading-10 font-semibold">{accommodationsDetails.title}</h1>
+    //border-2 border-black (Add this after this page is completed)
+    <div className="mt-12 bg-gray-100 p-10 rounded-md">
+
+        {/*ACCOMMODATION TITLE */}
+        <h1 className="mb-3 text-3xl leading-10 font-semibold">{accommodationsDetails.title}</h1>
+
+        {/*ACCOMMODATION ADDRESS */}
         <a 
             href={"https://maps.google.com/?q=" + accommodationsDetails.address} 
             target="_blank" 
-            className="font-semibold underline mb-6 flex gap-1 " 
+            className="font-semibold underline mb-6 gap-1 inline-flex" 
             rel="noreferrer"
         >
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -75,14 +80,17 @@ const SingleAccommodationPage = () => {
 
             {accommodationsDetails.address}
         </a>
+
+        {/*ACCOMMODATION PICTURES */}
         <div className="grid grid-cols-[2fr_1fr_1fr] gap-2 relative">
 
             <div className="">
                 {accommodationsDetails.addedPhotos?.[0] && (
-                    <img 
+                    <img
+                        onClick={() => setShowPhotos(true)} 
                         src={"http://localhost:4000/uploads/"+ accommodationsDetails.addedPhotos[0]} 
                         alt="Place Pictures"
-                        className="rounded-l-2xl h-full" 
+                        className="rounded-l-2xl h-full cursor-pointer" 
                     />
                 )} 
             </div>
@@ -90,19 +98,21 @@ const SingleAccommodationPage = () => {
             <div className="grid gap-2">
                 <div className="overflow-hidden">
                     {accommodationsDetails.addedPhotos?.[1] && (
-                        <img 
+                        <img
+                            onClick={() => setShowPhotos(true)} 
                             src={"http://localhost:4000/uploads/" + accommodationsDetails.addedPhotos[1]} 
                             alt="Place Pictures"
-                            className="" 
+                            className=" cursor-pointer" 
                          />
                     )}
                 </div>
                 <div className="overflow-hidden">
                     {accommodationsDetails.addedPhotos?.[2] && (
-                        <img 
+                        <img
+                            onClick={() => setShowPhotos(true)} 
                             src={"http://localhost:4000/uploads/" + accommodationsDetails.addedPhotos[2]} 
                             alt="Place Pictures"
-                            className=""  
+                            className="cursor-pointer"   
                         />
                     )}
                 </div> 
@@ -111,19 +121,21 @@ const SingleAccommodationPage = () => {
             <div className="grid gap-2">
                 <div className="overflow-hidden">
                     {accommodationsDetails.addedPhotos?.[3] && (
-                        <img 
+                        <img
+                            onClick={() => setShowPhotos(true)} 
                             src={"http://localhost:4000/uploads/" + accommodationsDetails.addedPhotos[3]} 
                             alt="Place Pictures"
-                            className="rounded-tr-2xl" 
+                            className="rounded-tr-2xl cursor-pointer" 
                          />
                     )}
                 </div>
                 <div className="overflow-hidden">
                     {accommodationsDetails.addedPhotos?.[4] && (
-                        <img 
+                        <img
+                            onClick={() => setShowPhotos(true)} 
                             src={"http://localhost:4000/uploads/" + accommodationsDetails.addedPhotos[4]} 
                             alt="Place Pictures"
-                            className="rounded-br-2xl"  
+                            className="rounded-br-2xl cursor-pointer"   
                         />
                     )}
                 </div> 
@@ -137,6 +149,79 @@ const SingleAccommodationPage = () => {
                 Show More
             </button>
         </div>
+
+        
+        <div className="grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-4 lg:gap-14 mt-4">
+            
+            <div className="">
+
+                {/*ACCOMMODATION DESCRIPTION */}
+                <div className="mt-2">
+                    <h2 className="text-2xl font-semibold">Description</h2>
+                    <p className="text-sm text-justify mt-2 whitespace-pre-line">{accommodationsDetails.description}</p>
+                </div>
+
+
+                {/*ACCOMMODATION BOOKING DETAILS */}
+                <div className="mt-4">
+                    <h2 className="text-2xl font-semibold mb-2">Booking Details</h2>
+                    <p className="text-sm text-justify font-medium mb-1">Check In Time: <span className="font-normal">{accommodationsDetails.checkInTime}</span></p>
+                    <p className="text-sm text-justify font-medium mb-1">Check Out Time: <span className="font-normal">{accommodationsDetails.checkOutTime}</span></p>
+                    <p className="text-sm text-justify font-medium mb-1">Maximum Number of Guests: <span className="font-normal">{accommodationsDetails.maxGuests}</span></p>
+                </div>
+
+
+
+            </div>
+
+            {/*BOOKING WIDGET */}
+            <div className="mt-4 px-4 bg-white rounded-md self-center shadow-md shadow-gray-500">
+                <h1 className="text-2xl py-2 text-center font-semibold mb-2">Price: <span className="font-normal text-xl">RM{accommodationsDetails.price}/per night</span></h1>
+                
+                <div className="border rounded-2xl">
+                    <div className="flex justify-evenly">
+                        <div className="px-4 py-3 border-r w-full">
+                            <label className="font-medium">Check In: </label>
+                            <input type="date" />
+                        </div>
+                        <div className="px-4 py-3 w-full">
+                            <label className="font-medium">Check Out: </label>
+                            <input type="date" />
+                        </div>
+                    </div>
+                    
+                    <div className="px-4 py-2 w-full border-t">
+                        <label className="font-medium">Number of Guests: </label>
+                        <input type="number" value={1} className="booking-widget-input" />
+                    </div>
+
+                </div>
+
+                <button className="primary my-4 text-white font-bold">Book</button>
+            </div>
+
+
+
+        </div>
+
+
+
+
+        
+
+
+
+
+
+        
+
+
+
+
+
+        {/*ACCOMMODATION EXTRA INFO */}
+
+
     </div>
   )
 }

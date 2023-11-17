@@ -36,7 +36,7 @@ const HomePage = () => {
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
 
-      <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-8" >
+      <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10" >
         {accommodations.length > 0 && accommodations.filter(searchFilter).map(place => (
 
           <Link to={'/accommodations/' + place._id} className="" key={place.id}>

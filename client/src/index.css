@@ -12,7 +12,7 @@ input.search-bar {
     @apply border w-full rounded-full p-5 shadow-xl text-lg ;
 }
 
-input.booking-widget-input {
+input.booking-widget-inputs {
     
     @apply w-full border border-gray-300 py-2 px-2 rounded-xl mt-2;
 }

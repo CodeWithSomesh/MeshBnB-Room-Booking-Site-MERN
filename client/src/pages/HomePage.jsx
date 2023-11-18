@@ -1,9 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import SearchBar from "../components/SearchBar";
+import { UserContext } from '../UserContext';
 
 const HomePage = () => {
+
+  const {user} = useContext(UserContext);
 
   // Initialize all States 
   const [searchTerm, setSearchTerm] = useState('');
@@ -39,7 +42,7 @@ const HomePage = () => {
       <div className="mt-12 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10" >
         {accommodations.length > 0 && accommodations.filter(searchFilter).map(place => (
 
-          <Link to={'/accommodations/' + place._id} className="" key={place.id}>
+          <Link to={user?'/accommodations/' + place._id:'/login'} className="" key={place.id}>
             
             <div className="bg-gray-500 rounded-2xl">
               {place.addedPhotos?.[0] && (

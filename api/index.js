@@ -225,17 +225,20 @@ app.post('/bookings', (req, res) => {
 
     const {token} = req.cookies; //Destructuring 
     const {
-        accommodation, checkInTime, 
-        checkOutTime, guestsNum, 
-        guestsName, guestsPhoneNum, totalPrice
+        accommodation, checkInDate, 
+        checkOutDate, guestsNum, 
+        guestsName, guestsPhoneNum, numOfNights,
+        accommodationPriceForNumOfNights, serviceFee, totalPrice, 
     } = req.body; //Destructuring 
 
     jwt.verify(token, jwtSecret, {}, async (err, userData)=> {
         if (err) throw err;
         const bookingDoc = await Booking.create({
-            accommodation, checkInTime, 
-            checkOutTime, guestsNum, 
-            guestsName, guestsPhoneNum, totalPrice, user:userData.id,
+            accommodation, checkInDate, 
+            checkOutDate, guestsNum, 
+            guestsName, guestsPhoneNum, numOfNights,
+            accommodationPriceForNumOfNights, serviceFee, 
+            totalPrice, user:userData.id,
         }); 
     
         res.json(bookingDoc); 
@@ -251,6 +254,11 @@ app.get('/bookings', (req, res) => {
         //Bookings registered under the same user "id" will all be sent and displayed at '/account/bookings'
         res.json( await Booking.find({user:userData.id}).populate('accommodation')) ;
     });
+})
+
+app.delete('/bookings/:id', async (req, res) => {
+    const {id} = req.params; //Getting the id from params
+    res.json(await Booking.findByIdAndDelete(id));
 })
 
 

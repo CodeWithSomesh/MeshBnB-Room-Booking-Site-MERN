@@ -72,7 +72,7 @@ app.post('/login', async(req, res) => {
             })
             
         } else {
-            res.status(422).json('Incorrect Password');
+            res.json('Incorrect Password');
         }
     } else {
         res.json('Email Not Found');
@@ -255,6 +255,7 @@ app.get('/bookings', (req, res) => {
     });
 })
 
+// Deleting Booking that users added from the database
 app.delete('/bookings/:id', async (req, res) => {
     const {id} = req.params; //Getting the id from params
     res.json(await Booking.findByIdAndDelete(id));

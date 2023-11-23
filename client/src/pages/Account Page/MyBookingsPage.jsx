@@ -18,7 +18,10 @@ const MyBookingsPage = () => {
       
       <div className='absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'>
         {bookings?.length <= 0 && (
-          <p className='text-center text-2xl font-semibold'>You Have Not Made Any Booking</p>
+          <div>
+            <p className='text-center text-2xl font-semibold'>You Have Not Made Any Booking</p>
+            <p className='text-center mt-5 text-lg'>If The Booking You Have Made Is Not Displayed, It Indicates The Accommodation Owner Has Removed The Listing. </p>
+          </div>
         )}
       </div>
 
@@ -98,7 +101,9 @@ const MyBookingsPage = () => {
                 
               ))}
             </div>
-
+            
+            <p className='text-center mt-5 text-lg'>If The Booking You Have Made Is Not Displayed, It Indicates The Accommodation Owner Has Removed The Listing. </p>
+          
           </div>
           
         )}

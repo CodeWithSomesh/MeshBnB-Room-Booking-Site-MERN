@@ -60,6 +60,8 @@ const BookingWidget = ({accommodationsDetails}) => {
             alert('Please Fill In Your Phone Number');
         } else if (!guestsNum || guestsNum < 1){
             alert('Please Fill In The Correct Number Of Guests');
+        } else if (guestsNum > accommodationsDetails.maxGuests){
+            alert(`Please Fill In The Correct Number Of Guests.\nThis Accommodation Only Allows ${accommodationsDetails.maxGuests} Guests`);
         } 
         else {
             const response = await axios.post('/bookings', bookingData);

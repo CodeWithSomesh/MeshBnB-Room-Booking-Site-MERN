@@ -1,4 +1,3 @@
-//mongo atlas password = ZsTUIpsJArf9lZl4
 
 const express = require('express'); 
 const cors = require('cors');  // Allow Frontend Server communicate with Backend Server while ensuring security

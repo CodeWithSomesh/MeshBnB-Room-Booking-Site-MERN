@@ -16,11 +16,13 @@ const HomePage = () => {
     //Get the places that are added in the database
     axios.get('/all-accommodations').then(response => {
       // Display all those places 
-      setAccommodations([...response.data]);
+      setAccommodations([...response.data[1]]);
     })
 
 
   }, []);
+
+  console.log(accommodations)
 
   function searchFilter(place) {
     if (searchTerm.toLowerCase() === ''){ 

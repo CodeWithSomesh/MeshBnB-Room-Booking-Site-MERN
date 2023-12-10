@@ -1,4 +1,6 @@
 /* eslint-disable react/prop-types */
+import Image from './Image';
+
 const AccommodationGallery = ({accommodationsDetails, setShowPhotos}) => {
 
     return (
@@ -6,9 +8,9 @@ const AccommodationGallery = ({accommodationsDetails, setShowPhotos}) => {
 
             <div className="overflow-hidden">
                 {accommodationsDetails.addedPhotos?.[0] && (
-                    <img
+                    <Image
                         onClick={() => setShowPhotos(true)} 
-                        src={"http://localhost:4000/uploads/"+ accommodationsDetails.addedPhotos[0]} 
+                        src = {accommodationsDetails.addedPhotos[0]} 
                         alt="Place Pictures"
                         className="rounded-l-2xl h-full w-full cursor-pointer" 
                     />
@@ -18,9 +20,9 @@ const AccommodationGallery = ({accommodationsDetails, setShowPhotos}) => {
             <div className="grid gap-2">
                 <div className="overflow-hidden">
                     {accommodationsDetails.addedPhotos?.[1] && (
-                        <img
+                        <Image
                             onClick={() => setShowPhotos(true)} 
-                            src={"http://localhost:4000/uploads/" + accommodationsDetails.addedPhotos[1]} 
+                            src={ accommodationsDetails.addedPhotos[1]} 
                             alt="Place Pictures"
                             className=" cursor-pointer h-full" 
                             />
@@ -28,9 +30,9 @@ const AccommodationGallery = ({accommodationsDetails, setShowPhotos}) => {
                 </div>
                 <div className="overflow-hidden">
                     {accommodationsDetails.addedPhotos?.[2] && (
-                        <img
+                        <Image
                             onClick={() => setShowPhotos(true)} 
-                            src={"http://localhost:4000/uploads/" + accommodationsDetails.addedPhotos[2]} 
+                            src={ accommodationsDetails.addedPhotos[2]} 
                             alt="Place Pictures"
                             className="cursor-pointer h-full"   
                         />
@@ -41,9 +43,9 @@ const AccommodationGallery = ({accommodationsDetails, setShowPhotos}) => {
             <div className="grid gap-2">
                 <div className="overflow-hidden">
                     {accommodationsDetails.addedPhotos?.[3] && (
-                        <img
+                        <Image
                             onClick={() => setShowPhotos(true)} 
-                            src={"http://localhost:4000/uploads/" + accommodationsDetails.addedPhotos[3]} 
+                            src={ accommodationsDetails.addedPhotos[3]} 
                             alt="Place Pictures"
                             className="rounded-tr-2xl cursor-pointer h-full" 
                             />
@@ -51,9 +53,9 @@ const AccommodationGallery = ({accommodationsDetails, setShowPhotos}) => {
                 </div>
                 <div className="overflow-hidden">
                     {accommodationsDetails.addedPhotos?.[4] && (
-                        <img
+                        <Image
                             onClick={() => setShowPhotos(true)} 
-                            src={"http://localhost:4000/uploads/" + accommodationsDetails.addedPhotos[4]} 
+                            src={ accommodationsDetails.addedPhotos[4]} 
                             alt="Place Pictures"
                             className="rounded-br-2xl cursor-pointer h-full"   
                         />

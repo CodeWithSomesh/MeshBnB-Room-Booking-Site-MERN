@@ -3,6 +3,7 @@ import AccountPageNavbar from '../../components/AccountPageNavbar';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import BookingDates from '../../components/BookingDates';
+import Image from '../../components/Image';
 
 const MyBookingsPage = () => {
 
@@ -39,8 +40,8 @@ const MyBookingsPage = () => {
                 >
                   <div className="md:w-80 w-48 shrink-0">
                     {booking?.accommodation?.addedPhotos?.[0] && (
-                      <img
-                        src={"http://localhost:4000/uploads/"+ booking?.accommodation?.addedPhotos[0]} 
+                      <Image
+                        src={booking?.accommodation?.addedPhotos[0]} 
                         alt="Place Pictures"
                         className="h-full object-cover" 
                       />

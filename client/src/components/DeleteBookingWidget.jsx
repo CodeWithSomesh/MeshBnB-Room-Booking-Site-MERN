@@ -52,7 +52,7 @@ const DeleteBookingWidget = ({booking}) => {
             </div>
 
             <div className="flex justify-between mt-4 px-2">
-                <p className="font-normal text-xl underline mr-4">SM Booking Service Fee</p>
+                <p className="font-normal text-xl underline mr-4">Mesh BnB Service Fee</p>
                 <p className="font-semibold text-xl  ">RM{booking.serviceFee.toLocaleString()}</p>
             </div>
 

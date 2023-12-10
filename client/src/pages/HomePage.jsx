@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 import SearchBar from "../components/SearchBar";
 import { UserContext } from '../UserContext';
+import Image from '../components/Image';
 
 const HomePage = () => {
 
@@ -48,8 +49,8 @@ const HomePage = () => {
             
             <div className="bg-gray-500 rounded-2xl">
               {place.addedPhotos?.[0] && (
-                <img 
-                  src={"http://localhost:4000/uploads/" + place.addedPhotos[0]} 
+                <Image 
+                  src={place.addedPhotos[0]} 
                   alt="Main Unit Image" 
                   className="rounded-2xl object-cover aspect-square"
                 />

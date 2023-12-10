@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import AccountPageNavbar from '../../components/AccountPageNavbar';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Image from '../../components/Image';
 
 const MyAccommodation = () => {
 
@@ -44,7 +45,7 @@ const MyAccommodation = () => {
 
               <div className="flex h-32 w-32 shrink-0 bg-gray-300 rounded-lg">
                 {place.addedPhotos.length > 0 && (
-                  <img className='object-cover w-full h-full rounded-lg' src={'http://localhost:4000/uploads/'+ place.addedPhotos[0]} alt="Main Unit Image" />
+                  <Image className='object-cover w-full h-full rounded-lg' src={place.addedPhotos[0]} alt="Main Unit Image" />
                 )}
               </div>
 

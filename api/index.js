@@ -31,7 +31,7 @@ app.use(cors({
 
 
 // Test page (Used for testing)
-app.get('/test', (req, res) => {
+app.get('/api/test', (req, res) => {
     //  Connecting to Mongo Atlas 
     mongoose.connect(process.env.MONGO_URL)
 
@@ -39,7 +39,7 @@ app.get('/test', (req, res) => {
 })
 
 // Register Page 
-app.post('/register', async (req, res) => {
+app.post('/api/register', async (req, res) => {
     //  Connecting to Mongo Atlas 
     mongoose.connect(process.env.MONGO_URL)
 
@@ -61,7 +61,7 @@ app.post('/register', async (req, res) => {
 });
 
 // Login Page 
-app.post('/login', async(req, res) => {
+app.post('/api/login', async(req, res) => {
     //  Connecting to Mongo Atlas 
     mongoose.connect(process.env.MONGO_URL)
 
@@ -89,7 +89,7 @@ app.post('/login', async(req, res) => {
 });
 
 // Profile Page 
-app.get('/profile', (req, res) => {
+app.get('/api/profile', (req, res) => {
     //  Connecting to Mongo Atlas 
     mongoose.connect(process.env.MONGO_URL)
 
@@ -108,7 +108,7 @@ app.get('/profile', (req, res) => {
 })
 
 // Logout Page 
-app.post('/logout', (req, res) => {
+app.post('/api/logout', (req, res) => {
     //  Connecting to Mongo Atlas 
     mongoose.connect(process.env.MONGO_URL)
 
@@ -143,7 +143,7 @@ async function uploadToS3(path, originalFileName, mimetype){
 
 
 // Upload Room Pictures by Link feature  
-app.post('/upload-by-link', async (req, res) => {
+app.post('/api/upload-by-link', async (req, res) => {
     const {link} = req.body; //Destructuring
     const newName = 'photo' + Date.now() + '.jpg';
 
@@ -159,7 +159,7 @@ app.post('/upload-by-link', async (req, res) => {
 
 // Upload Room Pictures from Device feature 
 const photosMiddleware = multer({ dest: '/tmp' }); 
-app.post('/upload-from-device', photosMiddleware.array('photos', 100), async (req, res) => {
+app.post('/api/upload-from-device', photosMiddleware.array('photos', 100), async (req, res) => {
     const uploadedFiles = [];
     for (let i = 0; i < req.files.length; i++) {  //Looping thru every photo file that is added from device
         const {path, originalname, mimetype} = req.files[i]; //Setting the photo's info to variables
@@ -171,7 +171,7 @@ app.post('/upload-from-device', photosMiddleware.array('photos', 100), async (re
 })
 
 // Registering and Adding 'accommodations' that user have added in the database
-app.post('/accommodations', (req, res) => {
+app.post('/api/accommodations', (req, res) => {
     //  Connecting to Mongo Atlas 
     mongoose.connect(process.env.MONGO_URL)
 
@@ -196,7 +196,7 @@ app.post('/accommodations', (req, res) => {
 })
 
 // Sending Accommodations details that A CERTAIN USER added, from the database, to be displayed at '/account/accommodations'
-app.get('/user-accommodations', (req, res) => {
+app.get('/api/user-accommodations', (req, res) => {
     //  Connecting to Mongo Atlas 
     mongoose.connect(process.env.MONGO_URL)
 
@@ -211,7 +211,7 @@ app.get('/user-accommodations', (req, res) => {
 });
 
 // Sending Accommodations details that users added, from the database, to be displayed at '/accommodations/:id'
-app.get('/accommodations/:id', async (req, res) => {
+app.get('/api/accommodations/:id', async (req, res) => {
     //  Connecting to Mongo Atlas 
     mongoose.connect(process.env.MONGO_URL)
 
@@ -220,7 +220,7 @@ app.get('/accommodations/:id', async (req, res) => {
 }); 
 
 // Updating Accommodations data that user added in the database
-app.put('/accommodations', async (req, res) => {
+app.put('/api/accommodations', async (req, res) => {
     //  Connecting to Mongo Atlas 
     mongoose.connect(process.env.MONGO_URL)
 
@@ -248,7 +248,7 @@ app.put('/accommodations', async (req, res) => {
 });
 
 // Deleting Accommodation that users added from the database
-app.delete('/accommodations/:id', async (req, res) => {
+app.delete('/api/accommodations/:id', async (req, res) => {
     //  Connecting to Mongo Atlas 
     mongoose.connect(process.env.MONGO_URL)
 
@@ -268,7 +268,7 @@ app.delete('/accommodations/:id', async (req, res) => {
 }); 
 
 // Sending Accommodations details that ALL USERS added, from the database, to be displayed at Home Page
-app.get('/all-accommodations', async (req, res) => {
+app.get('/api/all-accommodations', async (req, res) => {
     //  Connecting to Mongo Atlas 
     mongoose.connect(process.env.MONGO_URL)
 
@@ -278,7 +278,7 @@ app.get('/all-accommodations', async (req, res) => {
 });
 
 // Registering 'bookings' that user have added in the database
-app.post('/bookings', (req, res) => {
+app.post('/api/bookings', (req, res) => {
     //  Connecting to Mongo Atlas 
     mongoose.connect(process.env.MONGO_URL)
 
@@ -305,7 +305,7 @@ app.post('/bookings', (req, res) => {
 });
 
 // Sending Bookings details that A CERTAIN USER added, from the database, to be displayed at '/account/bookings'
-app.get('/bookings', (req, res) => {
+app.get('/api/bookings', (req, res) => {
     //  Connecting to Mongo Atlas 
     mongoose.connect(process.env.MONGO_URL)
 
@@ -319,7 +319,7 @@ app.get('/bookings', (req, res) => {
 })
 
 // Deleting Booking that users added from the database
-app.delete('/bookings/:id', async (req, res) => {
+app.delete('/api/bookings/:id', async (req, res) => {
     //  Connecting to Mongo Atlas 
     mongoose.connect(process.env.MONGO_URL)
 

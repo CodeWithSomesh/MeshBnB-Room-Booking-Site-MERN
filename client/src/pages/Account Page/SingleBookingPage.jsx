@@ -60,7 +60,7 @@ const SingleBookingPage = () => {
 
                     <div key={photo.id} className="grid place-items-center">
                         <Image 
-                            src={"http://localhost:4000/uploads/" + photo} 
+                            src={photo} 
                             alt="Place Picture" 
                             className="object-cover w-full"
                         />

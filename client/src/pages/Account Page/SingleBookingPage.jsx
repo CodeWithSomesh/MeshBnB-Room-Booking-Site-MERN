@@ -7,6 +7,7 @@ import AccommodationGallery from '../../components/AccommodationGallery';
 import BookingDates from '../../components/BookingDates';
 import DisplaySelectedPerks from '../../components/DisplaySelectedPerks';
 import DeleteBookingWidget from '../../components/DeleteBookingWidget';
+import Image from '../../components/Image';
 
 const SingleBookingPage = () => {
 
@@ -58,7 +59,7 @@ const SingleBookingPage = () => {
                 {booking?.accommodation?.addedPhotos?.length > 0 && booking?.accommodation?.addedPhotos.map(photo => (
 
                     <div key={photo.id} className="grid place-items-center">
-                        <img 
+                        <Image 
                             src={"http://localhost:4000/uploads/" + photo} 
                             alt="Place Picture" 
                             className="object-cover w-full"

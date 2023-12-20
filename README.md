@@ -7,10 +7,11 @@
 <p>MeshBnB serves as a premier online marketplace, connecting discerning travelers with a diverse array of short-term and long-term homestays and curated experiences. Functioning as a reputable broker, our platform seamlessly facilitates transactions, ensuring user satisfaction. Our commission-based model highlights our commitment to excellence and quality service delivery, mirroring the industry standards set by renowned platforms like Airbnb. </p>
 
 <h3>Info:</h3>
-» Built with HTML, CSS & JavaScript
-<br>
 » Fully Responsive
-
+<br>
+» Fully Functional Fullstack Website (Users can Add Accommodation and also Make Bookings upon Creating An Account)
+<br>
+» Built using MERN Stack (React JS for Frontend, MongoDB for Database, Node & Express JS for Backend)
 
 <br>
 <br>

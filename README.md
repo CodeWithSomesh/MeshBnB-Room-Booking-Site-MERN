@@ -3,10 +3,10 @@
 
 
 <h2>About The Project 📖</h2>
-  <h3>Mesh BnB: Homestay Booking Website</h3>
-  <p>MeshBnB serves as a premier online marketplace, connecting discerning travelers with a diverse array of short-term and long-term homestays and curated experiences. Functioning as a reputable broker, our platform seamlessly facilitates transactions, ensuring user satisfaction. Our commission-based model highlights our commitment to excellence and quality service delivery, mirroring the industry standards set by renowned platforms like Airbnb. </p>
+<h3>Mesh BnB: Homestay Booking Website</h3>
+<p>MeshBnB serves as a premier online marketplace, connecting discerning travelers with a diverse array of short-term and long-term homestays and curated experiences. Functioning as a reputable broker, our platform seamlessly facilitates transactions, ensuring user satisfaction. Our commission-based model highlights our commitment to excellence and quality service delivery, mirroring the industry standards set by renowned platforms like Airbnb. </p>
 
-  <h3>Info:</h3>
+<h3>Info:</h3>
 » Built with HTML, CSS & JavaScript
 <br>
 » Fully Responsive
@@ -14,85 +14,19 @@
 
 <br>
 <br>
+<br>
 
 ## Website Live/Video Demo 🌐
 Link: https://meshbnb-room-booking-site.vercel.app
-<br>
-Video: 
 
 <br>
-
+<br>
+<br>
 
 <h2>Project Preview 📸</h2>
-<h3 align='center'>Home Page 🏡</h3>
-<div align='center'>
-  <img src=""/>
-</div>
+Demo Video: 
 
 <br>
-<br>
-
-<h3 align='center'>Login Page 🏡</h3>
-<div align='center'>
-  <img src=''/>
-</div>
-
-<br>
-<br>
-
-<h3 align='center'>Register Page 🏡</h3>
-<div align='center'>
-  <img src=''/>
-</div>
-
-<br>
-<br>
-
-<h3 align='center'>Accommodation Page 🏡</h3>
-<div align='center'>
-  <img src=''/>
-</div>
-
-<br>
-<br>
-
-<h3 align='center'>Booking Page 🏡</h3>
-<div align='center'>
-  <img src=''/>
-</div>
-
-<br>
-<br>
-
-<h3 align='center'>My Profile Page 🏡</h3>
-<div align='center'>
-  <img src=''/>
-</div>
-
-<br>
-<br>
-
-<h3 align='center'>My Bookings Page 🏡</h3>
-<div align='center'>
-  <img src=''/>
-</div>
-
-<br>
-<br>
-
-<h3 align='center'>My Accommodations Page 🏡</h3>
-<div align='center'>
-  <img src=''/>
-</div>
-
-<br>
-<br>
-
-<h3 align='center'>My Accommodations Form Page 🏡</h3>
-<div align='center'>
-  <img src=''/>
-</div>
-
 <br>
 <br>
 

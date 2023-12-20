@@ -11,7 +11,7 @@
 <br>
 » Fully Functional Fullstack Website (Users can Add Accommodation and also Make Bookings upon Creating An Account)
 <br>
-» Built using MERN Stack (React JS for Frontend, MongoDB for Database, Node & Express JS for Backend)
+» Built using MERN Stack and Tailwind CSS (React JS and Tailwind CSS for Frontend, MongoDB for Database, Node & Express JS for Backend)
 
 <br>
 <br>
@@ -32,17 +32,17 @@ Demo Video:
 <br>
 
 #### Note:
-> Strengthened my understanding of CSS Position, CSS Grid, and CSS Flexbox
+> Strengthened my understanding of Asynchronous JavaScript (Used for connecting Frontend to the API)
 > 
-> Learnt how to build a Hamburger Menu
-> 
-> Learnt using animation with CSS and JavaScript  
-> 
-> Learnt that it is better to use percentage for 'width' and 'height' in CSS instead of using a fixed number as it will make the screen responsive.
+> Learnt how to build a Fullstack Web App using the MERN Stack
 >
-> Learnt to use CSS Properties such as 'transition', 'transform', and 'filter'.
+> Learnt using Tailwind CSS for responsive designs
 >
-> Learnt that each <source> element in HTML represents a different source image and can include a 'media' attribute and a 'srcset' attribute.
-> 'media="(min-width: 768px)"'. This 'media' attribute specifies a condition for when to use this source image. In this project's case, it says to use the 'source' when the viewport width is at least 768 pixels. 
+> Strengthened my understanding of React Hooks such as useState Hook, useEffect Hook and useContext Hook
+>
+> Learnt how to encrypt user passwords using "bcrypt" npm package for enhanced overall security of the website
+>
+> Learnt how to upload photos to Amazon S3 Bucket 
+
 
 

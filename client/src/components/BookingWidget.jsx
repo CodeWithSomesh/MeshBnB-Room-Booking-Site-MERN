@@ -131,7 +131,7 @@ const BookingWidget = ({accommodationsDetails}) => {
                 </div>
 
                 <div className="flex justify-between mt-4 px-2">
-                    <p className="font-normal text-xl underline mr-8">Mesh BnB Service Fee</p>
+                    <p className="font-normal text-xl underline mr-8">MeshBnB Service Fee</p>
                     <p className="font-medium text-xl ">RM{serviceFee.toLocaleString()}</p>
                 </div>
 

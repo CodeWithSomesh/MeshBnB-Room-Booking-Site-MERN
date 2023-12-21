@@ -81,7 +81,7 @@ const BookingWidget = ({accommodationsDetails}) => {
 
   return (
     <div className="mt-4 px-4 pt-4 bg-white rounded-2xl shadow-md shadow-gray-500">
-        <h1 className="text-2xl py-2 text-center font-semibold mb-2">RM{accommodationsDetails.price}<span className="font-normal text-xl"> per night</span></h1>
+        <h1 className="text-2xl py-2 text-center font-semibold mb-2">RM{accommodationsDetails.price.toLocaleString()}<span className="font-normal text-xl"> per night</span></h1>
         
         <div className="border rounded-2xl">
             <div className="sm:flex justify-evenly">

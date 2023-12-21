@@ -28,7 +28,7 @@ const DeleteBookingWidget = ({booking}) => {
 
     return (
         <div className='mt-4 px-4 pt-4 bg-white rounded-2xl shadow-md shadow-gray-500'>
-            <h1 className="text-2xl py-2 text-center font-semibold ">RM{booking.accommodation.price}<span className="font-normal text-xl"> per night</span></h1>
+            <h1 className="text-2xl py-2 text-center font-semibold ">RM{booking.accommodation.price.toLocaleString()}<span className="font-normal text-xl"> per night</span></h1>
             
             <div className='mt-4 border border-gray-300 rounded-2xl px-3 py-8'>
             <div className="flex justify-between px-2">

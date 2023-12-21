@@ -50,7 +50,7 @@ const RegisterPage = () => {
   }
 
   return (
-    <div className="mt-4 grow flex flex-col items-center justify-center mb-32">
+    <div className="mt-16 sm:mt-4 grow flex flex-col items-center justify-center mb-32">
       <h1 className="text-4xl text-center mb-4">Register</h1>
       <form className="max-w-md mx-auto" onSubmit={registerUser}>
         <input 

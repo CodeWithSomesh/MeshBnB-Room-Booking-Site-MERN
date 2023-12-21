@@ -19,7 +19,7 @@
 <br>
 <br>
 
-## Website Live/Video Demo 🌐
+## Website Live 🌐
 Link: https://meshbnb-room-booking-site.vercel.app
 
 <br>

@@ -32,7 +32,7 @@ Password: test
 <br>
 
 <h2>Project Preview 📸</h2>
-Demo Video: 
+Demo Video: https://www.youtube.com/watch?v=fnyr3D002nc
 
 <br>
 <br>

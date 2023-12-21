@@ -6,7 +6,7 @@ const Header = () => {
   const {user} = useContext(UserContext);
 
   return (
-    <div className='flex justify-between'>
+    <div className='flex justify-between mb-12 sm:mb-0'>
 
         <Link to={'/'} className="logo-icon flex gap-1 sm:gap-2 items-center">
 

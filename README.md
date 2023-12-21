@@ -3,7 +3,7 @@
 
 
 <h2>About The Project 📖</h2>
-<h3>Mesh BnB: Homestay Booking Website</h3>
+<h3>MeshBnB: Homestay Booking Website</h3>
 <p>MeshBnB serves as a premier online marketplace, connecting discerning travelers with a diverse array of short-term and long-term homestays and curated experiences. Functioning as a reputable broker, our platform seamlessly facilitates transactions, ensuring user satisfaction. Our commission-based model highlights our commitment to excellence and quality service delivery, mirroring the industry standards set by renowned platforms like Airbnb. </p>
 
 <br>

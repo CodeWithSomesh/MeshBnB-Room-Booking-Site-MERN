@@ -37,8 +37,15 @@ const HomePage = () => {
 
   return (
 
-    <div >
+    <div>
 
+      <div className="bg-gray-100 py-12 rounded-xl text- text-center mt-12 font-Inter text-8xl lg:text-9xl font-extrabold">
+        <h1 className="mx-8 leading-[7rem] lg:leading-[10rem]">
+          Welcome To &nbsp;
+          <span>MeshBnB</span>
+        </h1>
+      </div>
+      
       <SearchBar searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
 

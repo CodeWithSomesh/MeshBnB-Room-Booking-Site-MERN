@@ -12,7 +12,6 @@ Email: test@gmail.com <br>
 Password: test
 
 <br>
-<br>
 
 <h2>Project Preview 📸</h2>
 Demo Video: https://www.youtube.com/watch?v=fnyr3D002nc
